@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline page</title>
+    <!-- Vincular el manifest -->
+    <link rel="manifest" href="pwa-practice/manifest.json">
+
+    
+    <link rel="shortcut icon" href="pwa-practice/icons/icon-192x192.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="pwa-practice/icons/apple-touch-icon.png">
+
+    <!-- Color de la barra de navegación en moviles -->
+    <meta name="theme-color" content="#2196f3">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        button{
+            background-color: aqua;
+            padding: 2rem;
+            border: none;
+            border-radius: 1rem;
+        }
+        grid {
+            display: grid;
+        }
+        grid-cols-3{
+            grid-column: 3;
+        }
+    </style>
+</head>
+<body>
+    <h1>No tienes conexion broder</h1>
+    <p>Juega un poco</p>
+    <div class="grid grid-cols-3" id="content">
+        <button>Hola</button>
+        <button>Hola</button>
+        <button>Hola</button>
+        <button>Hola</button>
+    </div>
+</body>
+    <script>
+        const container = document.getElementById("content")
+        const botones = container.children
+        console.log(botones.length)
+    </script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primera PWA</title>
+
+    <!-- Vincular el manifest -->
+    <link rel="manifest" href="pwa-practice/manifest.json">
+
+    
+    <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+    <!-- Color de la barra de navegación en moviles -->
+    <meta name="theme-color" content="#2196f3">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bienvenido a mi PWA</h1>
+    <p>Se puede instalar en tu cel bro</p>
+    <button style="padding: 10px; border-radius: 1rem; background-color: blue; color: aliceblue; border: 1rem; border-color: aquamarine;" onclick="alert('holamundo')">Click</button>
+
+    <a href="login.html">Inicia sesión</a>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("pwa-practice/sw.js")
+                .then(reg => console.log("Service worker registrado"))
+                .catch(err => console.log("Error al registrar el service worker"))
+        }
+    </script>
+</body>
+</html>
