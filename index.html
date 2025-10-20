@@ -6,7 +6,7 @@
   <title>Mi Primera PWA</title>
 
   <!-- Manifest y configuración PWA -->
-  <link rel="manifest" href="pwa-practice/manifest.json" />
+  <link rel="manifest" href="PWA/manifest.json" />
   <meta name="theme-color" content="#2196f3" />
 
   <!-- Iconos -->
@@ -99,7 +99,7 @@
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("pwa-practice/sw.js")
+        .register("PWA/sw.js")
         .then(() => console.log("✅ Service Worker registrado correctamente"))
         .catch((err) => console.error("❌ Error al registrar el Service Worker:", err));
     }
