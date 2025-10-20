@@ -3,7 +3,7 @@
 
 // Nombre del sw y los archivos a cachear;
 const CACHE_NAME = "aromantial"
-const BASE_PATH = "/PWA/";
+const BASE_PATH = "PWA/";
 const urlsToCache = [ 
     `${BASE_PATH}index.html`,
     `${BASE_PATH}style.css`,
