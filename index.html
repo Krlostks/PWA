@@ -1,34 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera PWA</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Primera PWA</title>
 
-    <!-- Vincular el manifest -->
-    <link rel="manifest" href="pwa-practice/manifest.json">
+  <!-- Manifest y configuración PWA -->
+  <link rel="manifest" href="pwa-practice/manifest.json" />
+  <meta name="theme-color" content="#2196f3" />
 
-    
-    <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <!-- Iconos -->
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <!-- Color de la barra de navegación en moviles -->
-    <meta name="theme-color" content="#2196f3">
-    <link rel="stylesheet" href="style.css">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root {
+      --color-primary: #2196f3;
+      --color-secondary: #f5f5f5;
+      --color-text: #333;
+      --color-white: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: var(--color-secondary);
+      color: var(--color-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    header h1 {
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    p {
+      margin: 0.5rem 0 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    button {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #1976d2;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
+
 <body>
+  <header>
     <h1>Bienvenido a mi PWA</h1>
-    <p>Se puede instalar en tu cel bro</p>
-    <button style="padding: 10px; border-radius: 1rem; background-color: blue; color: aliceblue; border: 1rem; border-color: aquamarine;" onclick="alert('holamundo')">Click</button>
+    <p>Esta aplicación web progresiva se puede instalar en tu dispositivo móvil 🚀</p>
+  </header>
 
-    <a href="login.html">Inicia sesión</a>
+  <main>
+    <button onclick="alert('Gracias por dar click bai')">Probar función</button>
+    <br />
+    <a href="login.html">Iniciar sesión</a>
+  </main>
 
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("pwa-practice/sw.js")
-                .then(reg => console.log("Service worker registrado"))
-                .catch(err => console.log("Error al registrar el service worker"))
-        }
-    </script>
+  <footer>
+    <p>© 2025 Mi Primera PWA</p>
+  </footer>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("pwa-practice/sw.js")
+        .then(() => console.log("✅ Service Worker registrado correctamente"))
+        .catch((err) => console.error("❌ Error al registrar el Service Worker:", err));
+    }
+  </script>
 </body>
 </html>
