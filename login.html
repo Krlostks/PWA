@@ -1,41 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Vincular el manifest -->
-    <link rel="manifest" href="pwa-practice/manifest.json">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión</title>
 
-    
-    <link rel="shortcut icon" href="pwa-practice/icons/icon-192x192.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="pwa-practice/icons/apple-touch-icon.png">
+  <!-- Manifest y configuración PWA -->
+  <link rel="manifest" href="pwa-practice/manifest.json" />
+  <meta name="theme-color" content="#2196f3" />
 
-    <!-- Color de la barra de navegación en moviles -->
-    <meta name="theme-color" content="#2196f3">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        card{
-            background: #000;
-            color: aliceblue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
-    <link rel="stylesheet" href="style.css">
+  <!-- Iconos -->
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root {
+      --color-primary: #2196f3;
+      --color-secondary: #f5f5f5;
+      --color-text: #333;
+      --color-white: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: var(--color-secondary);
+      color: var(--color-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .card {
+      background: var(--color-white);
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 350px;
+      width: 100%;
+    }
+
+    .title {
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    label {
+      text-align: left;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    input[type="submit"] {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: #1976d2;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
+
 <body>
-    <a href="index.html">Regresa</a>
-    <div class="card">
-        <h1 class="title">Login Page</h1>
-        <form class="flex">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
-            <input type="submit" value="Login">
-        </form>
-    </div>
+  <div class="card">
+    <h1 class="title">Iniciar Sesión</h1>
+    <form onsubmit="handleLogin(event)">
+      <label for="username">Usuario</label>
+      <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+
+      <input type="submit" value="Entrar">
+    </form>
+    <a href="index.html">← Regresar al inicio</a>
+  </div>
+
+  <footer>
+    <p>© 2025 Mi Primera PWA</p>
+  </footer>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("pwa-practice/sw.js")
+        .then(() => console.log("✅ Service Worker registrado correctamente"))
+        .catch((err) => console.error("❌ Error al registrar el Service Worker:", err));
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      if (user === "" || pass === "") {
+        alert("Por favor, completa todos los campos.");
+        return;
+      }
+
+      alert(`Bienvenido, ${user} 😺`);
+    }
+  </script>
 </body>
 </html>
