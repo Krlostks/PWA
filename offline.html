@@ -1,48 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offline page</title>
-    <!-- Vincular el manifest -->
-    <link rel="manifest" href="PWA/manifest.json">
-
     
-    <link rel="shortcut icon" href="PWA/icons/icon-192x192.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="PWA/icons/apple-touch-icon.png">
-
-    <!-- Color de la barra de navegación en moviles -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <meta name="theme-color" content="#2196f3">
+    
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.css">
+    
     <style>
-        button{
-            background-color: aqua;
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            color: #2196f3;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 400px;
+        }
+
+        button {
+            background-color: #2196f3;
+            color: white;
             padding: 2rem;
             border: none;
             border-radius: 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
         }
-        grid {
-            display: grid;
+
+        button:hover {
+            background-color: #1976d2;
         }
-        grid-cols-3{
-            grid-column: 3;
+
+        button:active {
+            transform: scale(0.95);
         }
     </style>
 </head>
 <body>
-    <h1>No tienes conexion broder</h1>
+    <h1>No tienes conexión broder</h1>
     <p>Juega un poco</p>
-    <div class="grid grid-cols-3" id="content">
-        <button>Hola</button>
-        <button>Hola</button>
-        <button>Hola</button>
-        <button>Hola</button>
+    <div class="grid" id="content">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
     </div>
-</body>
+
     <script>
-        const container = document.getElementById("content")
-        const botones = container.children
-        console.log(botones.length)
+        const container = document.getElementById("content");
+        const botones = container.children;
+        
+        console.log(`Total de botones: ${botones.length}`);
+        
+        Array.from(botones).forEach((boton, index) => {
+            boton.addEventListener('click', () => {
+                boton.style.backgroundColor = '#4caf50';
+                setTimeout(() => {
+                    boton.style.backgroundColor = '#2196f3';
+                }, 300);
+            });
+        });
     </script>
+</body>
 </html>

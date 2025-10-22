@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Iniciar Sesión</title>
 
-  <!-- Manifest y configuración PWA -->
-  <link rel="manifest" href="PWA/manifest.json" />
+  <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#2196f3" />
 
-  <!-- Iconos -->
   <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-  <!-- Estilos -->
   <link rel="stylesheet" href="style.css" />
 
   <style>
@@ -131,7 +128,7 @@
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("PWA/sw.js")
+        .register("sw.js")
         .then(() => console.log("✅ Service Worker registrado correctamente"))
         .catch((err) => console.error("❌ Error al registrar el Service Worker:", err));
     }
